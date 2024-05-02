@@ -1,6 +1,7 @@
 import { Countries } from "@/app/_section/countries";
 import { Card } from "@/components/card";
 import { Search } from "@/components/search";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -23,7 +24,9 @@ export default function Home() {
       <div className="w-full px-8 sm:px-16 md:px-24 lg:px-28 2xl:px-32 py-8">
         <div className="w-full h-1 bg-slate-400" />
       </div>
-      <Countries />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Countries />
+      </Suspense>
     </main>
   );
 }
