@@ -19,12 +19,26 @@ export default function Home() {
             <p className="line-clamp-1">Phone</p>
           </Card>
         </div>
-        <Search />
+        <Suspense
+          fallback={
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -trasnlate-y-1/2">
+              Loading...
+            </div>
+          }
+        >
+          <Search />
+        </Suspense>
       </div>
       <div className="w-full px-8 sm:px-16 md:px-24 lg:px-28 2xl:px-32 py-8">
         <div className="w-full h-1 bg-slate-400" />
       </div>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -trasnlate-y-1/2">
+            Loading...
+          </div>
+        }
+      >
         <Countries />
       </Suspense>
     </main>
